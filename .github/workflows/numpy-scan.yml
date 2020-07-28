@@ -17,17 +17,18 @@ jobs:
       matrix:
         os: [windows-2019]
         python-version: [3.7]
-        TYPE: [python-pip, conda-pip, conda-conda]
+        # TYPE: [python-pip, conda-pip, conda-conda]
+        TYPE: [python-pip]
         include:
           - TYPE: python-pip
             INSTALL: pip
             PKG_INSTALL: pip
-          - TYPE: conda-pip
-            INSTALL: conda
-            PKG_INSTALL: pip
-          - TYPE: conda-conda
-            INSTALL: conda
-            PKG_INSTALL: conda
+          # - TYPE: conda-pip
+            # INSTALL: conda
+            # PKG_INSTALL: pip
+          # - TYPE: conda-conda
+            # INSTALL: conda
+            # PKG_INSTALL: conda
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
