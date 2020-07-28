@@ -59,8 +59,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          "$PKG_INSTALL" install pytest psutil hypothesis
-          "$INSTALL" install numpy
+          "$PKG_INSTALL install pytest psutil hypothesis"
+          "$INSTALL install numpy"
           pip install -e .
 
       - name: Show environment
