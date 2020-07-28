@@ -75,5 +75,5 @@ jobs:
       - name: Upload results
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ MATRIX_NAME }}
+          name: "${MATRIX_NAME}"
           path: packages/numpy/*.json
