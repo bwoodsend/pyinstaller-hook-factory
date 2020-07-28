@@ -19,5 +19,8 @@ def body():
 results = Sniff(None, body).to_json()
 
 from pathlib import Path
+import os
 
-Path(__file__).with_name("scan.json").write_text(results)
+name = os.environ.get("MATRIX_NAME", "scan")
+
+Path(__file__).with_name(name + ".json").write_text(results)

@@ -33,28 +33,11 @@ jobs:
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
       MATRIX_NAME: ${{ matrix.os }}-python${{ matrix.python-version }}-${{ matrix.TYPE }}
+      MATRIX_CONTEXT: ${{ toJson(matrix) }}
 
     steps:
-      - name: Dump GitHub context
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
+      - name: Check name
+        run: echo "$MATRIX_NAME"
 
       - name: Check out repository
         uses: actions/checkout@v2
@@ -84,7 +67,6 @@ jobs:
           python -VV
           python -c "from pprint import pprint; import os; pprint(dict(os.environ))"
           pip freeze
-          echo "$MATRIX_CONTEXT"
 
       - name: Run dll sniff tests
         run: |
@@ -93,5 +75,5 @@ jobs:
       - name: Upload results
         uses: actions/upload-artifact@v2
         with:
-          name: Upload scan results
-          path: packages/numpy/scan.json
+          name: ${{ MATRIX_NAME }}
+          path: packages/numpy/*.json
