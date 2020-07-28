@@ -83,6 +83,7 @@ jobs:
           python -VV
           python -c "from pprint import pprint; import os; pprint(dict(os.environ))"
           pip freeze
+          echo "$MATRIX_CONTEXT"
 
       - name: Test with pytest
         run: |
