@@ -15,20 +15,20 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2019]
+        # os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows-latest]
         python-version: [3.7]
-        # TYPE: [python-pip, conda-pip, conda-conda]
-        TYPE: [python-pip]
+        TYPE: [python-pip, conda-pip, conda-conda]
         include:
           - TYPE: python-pip
             INSTALL: pip
             PKG_INSTALL: pip
-          # - TYPE: conda-pip
-            # INSTALL: conda
-            # PKG_INSTALL: pip
-          # - TYPE: conda-conda
-            # INSTALL: conda
-            # PKG_INSTALL: conda
+          - TYPE: conda-pip
+            INSTALL: conda
+            PKG_INSTALL: pip
+          - TYPE: conda-conda
+            INSTALL: conda
+            PKG_INSTALL: conda
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -59,7 +59,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install numpy pytest psutil hypothesis
+          `PKG_INSTALL` install pytest psutil hypothesis
+          `INSTALL` install numpy
           pip install -e .
 
       - name: Show environment
