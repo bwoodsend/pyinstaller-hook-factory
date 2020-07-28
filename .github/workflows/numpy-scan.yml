@@ -85,11 +85,11 @@ jobs:
           pip freeze
           echo "$MATRIX_CONTEXT"
 
-      - name: Test with pytest
+      - name: Run dll sniff tests
         run: |
           python packages/numpy/scan.py
 
-      - name: Upload
+      - name: Upload results
         uses: actions/upload-artifact@v2
         with:
           name: Upload scan results
