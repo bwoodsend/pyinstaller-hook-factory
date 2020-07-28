@@ -35,13 +35,13 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Python ${{ matrix.python-version }}
-      if: ${{ matrix.INSTALL == "pip" }}
+      if: matrix.INSTALL == 'pip'
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
 
     - name: Setup conda
-      if: ${{ matrix.INSTALL != "pip" }}
+      if: matrix.INSTALL != 'pip'
       uses: s-weigand/setup-conda@v1
       with:
         update-conda: true
