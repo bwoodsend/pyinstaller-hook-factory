@@ -58,7 +58,13 @@ jobs:
           update-conda: true
           python-version: ${{ matrix.python-version }}
           conda-channels: anaconda, conda-forge
-
+          
+      - name: More setup conda
+        if: matrix.INSTALL != 'pip'
+        run: |
+          conda init cmd.exe
+          conda init powershell
+          
       - name: Install dependencies
         run: |
           ${{ matrix.ACTIVATE }}
