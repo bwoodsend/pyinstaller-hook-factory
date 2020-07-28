@@ -60,18 +60,18 @@ jobs:
           conda-channels: anaconda, conda-forge
           
       - name: Init conda windows
-        if: (matrix.INSTALL != 'pip') & (matrix.os == windows-latest)
+        if: (matrix.INSTALL != 'pip') && (matrix.os == windows-latest)
         run: |
           conda init cmd.exe
           conda init powershell
 
       - name: Init conda macos
-        if: (matrix.INSTALL != 'pip') & (matrix.os == macos-latest)
+        if: (matrix.INSTALL != 'pip') && (matrix.os == macos-latest)
         run: |
           conda init zsh
 
       - name: Init conda macos
-        if: (matrix.INSTALL != 'pip') & (matrix.os == ubuntu-latest)
+        if: (matrix.INSTALL != 'pip') && (matrix.os == ubuntu-latest)
         run: |
           conda init bash
 
