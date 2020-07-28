@@ -54,6 +54,12 @@ jobs:
         pip install numpy pytest psutil hypothesis
         pip install -e .
 
+    - name: Show environment:
+      run: |
+        python -VV
+        python -c "from pprint import pprint; import os; pprint(dict(os.environ))"
+        pip freeze
+
     - name: Test with pytest
       run: |
         python packages/numpy/scan.py
