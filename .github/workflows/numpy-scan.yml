@@ -74,6 +74,7 @@ jobs:
         if: (matrix.INSTALL != 'pip') && (matrix.os == 'ubuntu-latest')
         run: |
           conda init bash
+          source /home/runner/.bashrc
 
       - name: Install dependencies
         run: |
