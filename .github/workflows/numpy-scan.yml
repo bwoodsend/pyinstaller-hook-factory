@@ -71,6 +71,7 @@ jobs:
 
       - name: Run dll sniff tests
         run: |
+          ${{ matrix.PKG_INSTALL }} -V
           python packages/numpy/scan.py
 
       - name: Upload results
