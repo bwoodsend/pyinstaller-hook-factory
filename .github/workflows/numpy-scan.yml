@@ -54,7 +54,7 @@ jobs:
         pip install numpy pytest psutil hypothesis
         pip install -e .
 
-    - name: Show environment:
+    - name: Show environment
       run: |
         python -VV
         python -c "from pprint import pprint; import os; pprint(dict(os.environ))"
