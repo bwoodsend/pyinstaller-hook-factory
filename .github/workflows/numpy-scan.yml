@@ -31,7 +31,6 @@ jobs:
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
-      MATRIX_NAME: ${{ matrix.os }}-python${{ matrix.python-version }}-${{ matrix.TYPE }}
 
     steps:
       - name: Dump GitHub context
