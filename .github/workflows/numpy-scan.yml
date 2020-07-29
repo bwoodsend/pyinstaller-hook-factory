@@ -32,11 +32,14 @@ jobs:
             INSTALL: conda
             PKG_INSTALL: conda
             ACTIVATE: conda activate
-            
+
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
       MATRIX_NAME: ${{ matrix.os }}-python${{ matrix.python-version }}-${{ matrix.TYPE }}
       MATRIX_CONTEXT: ${{ toJson(matrix) }}
+
+    defaults:
+      shell: powershell
 
     steps:
       - name: Check name
@@ -58,7 +61,7 @@ jobs:
           update-conda: true
           python-version: ${{ matrix.python-version }}
           conda-channels: anaconda, conda-forge
-          
+
       - name: Init conda windows
         if: (matrix.INSTALL != 'pip') && (matrix.os == 'windows-latest')
         run: |
@@ -68,13 +71,12 @@ jobs:
       - name: Init conda macos
         if: (matrix.INSTALL != 'pip') && (matrix.os == 'macos-latest')
         run: |
-          conda init zsh
+          conda init powershell
 
       - name: Init conda linux
         if: (matrix.INSTALL != 'pip') && (matrix.os == 'ubuntu-latest')
         run: |
-          conda init bash
-          source /home/runner/.bashrc
+          conda init powershell
           conda activate
 
       - name: Install dependencies
