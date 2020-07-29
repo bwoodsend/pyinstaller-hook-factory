@@ -40,7 +40,7 @@ jobs:
 
     defaults:
       run:
-        shell: powershell
+        shell: pwsh
 
     steps:
       - name: Check name
