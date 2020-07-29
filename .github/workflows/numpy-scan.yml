@@ -18,20 +18,20 @@ jobs:
         # os: [windows-latest, macos-latest, ubuntu-latest]
         os: [ubuntu-latest]
         python-version: [3.7]
-        TYPE: [python-pip, conda-pip, conda-conda]
+        TYPE: [python-pip, conda-conda]
         include:
           - TYPE: python-pip
             INSTALL: pip
             PKG_INSTALL: pip
             ACTIVATE: echo null activate
           - TYPE: conda-pip
-            INSTALL: conda
-            PKG_INSTALL: pip
-            ACTIVATE: (/usr/share/miniconda/etc/profile.d/conda.sh) && (conda activate)
+  #          INSTALL: conda
+ #           PKG_INSTALL: pip
+#            ACTIVATE: (/usr/share/miniconda/etc/profile.d/conda.sh) && (conda activate)
           - TYPE: conda-conda
             INSTALL: conda
             PKG_INSTALL: conda
-            ACTIVATE: (/usr/share/miniconda/etc/profile.d/conda.sh) && (conda activate)
+            ACTIVATE: conda run 
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -75,30 +75,28 @@ jobs:
           conda init powershell
 
       - name: Init conda linux
-        if: (matrix.INSTALL != 'pip') && (matrix.os == 'ubuntu-latest')
+        if: (matrix.INSTALL != 'pip') && (matrix.os == 'ubuntu-latest_')
         run: |
           ${{ matrix.ACTIVATE }}
         
       - name: Install dependencies
         run: |
-          ${{ matrix.ACTIVATE }}
-          python -m pip install --upgrade pip
-          ${{ matrix.INSTALL }} install pytest psutil hypothesis
-          ${{ matrix.PKG_INSTALL }} install numpy
-          pip install -e .
+          ${{ matrix.ACTIVATE }} python -m pip install --upgrade pip
+          ${{ matrix.ACTIVATE }} ${{ matrix.INSTALL }} install pytest psutil hypothesis
+          ${{ matrix.ACTIVATE }} ${{ matrix.PKG_INSTALL }} install numpy
+          ${{ matrix.ACTIVATE }} pip install -e .
 
       - name: Show environment
         run: |
-          ${{ matrix.ACTIVATE }}
-          python -VV
-          python -c "from pprint import pprint; import os; pprint(dict(os.environ))"
-          pip freeze
+          
+          ${{ matrix.ACTIVATE }} python -VV
+          ${{ matrix.ACTIVATE }} python -c "from pprint import pprint; import os; pprint(dict(os.environ))"
+          ${{ matrix.ACTIVATE }} pip freeze
 
       - name: Run dll sniff tests
         run: |
-          ${{ matrix.ACTIVATE }}
-          ${{ matrix.PKG_INSTALL }} -V
-          python packages/numpy/scan.py
+          ${{ matrix.ACTIVATE }} ${{ matrix.PKG_INSTALL }} -V
+          ${{ matrix.ACTIVATE }} python packages/numpy/scan.py
 
       - name: Upload results
         uses: actions/upload-artifact@v2
