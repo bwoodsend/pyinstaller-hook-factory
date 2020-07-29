@@ -23,7 +23,7 @@ jobs:
           - TYPE: python-pip
             INSTALL: pip
             PKG_INSTALL: pip
-            ACTIVATE: echo null activate
+            ACTIVATE: ''
    #       - TYPE: conda-pip
   #          INSTALL: conda
  #           PKG_INSTALL: pip
