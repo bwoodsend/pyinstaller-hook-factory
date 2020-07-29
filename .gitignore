@@ -128,5 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Test outputs are in json format
+# Test outputs are in json format or zipped jsons
 *.json
+*.zip
