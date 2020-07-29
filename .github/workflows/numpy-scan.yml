@@ -75,8 +75,6 @@ jobs:
         run: |
           conda init bash
           source /home/runner/.bashrc
-          source /usr/share/miniconda/etc/profile.d/conda.sh
-          eval "$(conda shell.bash hook)"
           conda activate
 
       - name: Install dependencies
