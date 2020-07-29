@@ -24,7 +24,7 @@ jobs:
             INSTALL: pip
             PKG_INSTALL: pip
             ACTIVATE: echo null activate
-          - TYPE: conda-pip
+   #       - TYPE: conda-pip
   #          INSTALL: conda
  #           PKG_INSTALL: pip
 #            ACTIVATE: (/usr/share/miniconda/etc/profile.d/conda.sh) && (conda activate)
