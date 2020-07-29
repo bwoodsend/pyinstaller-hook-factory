@@ -27,11 +27,11 @@ jobs:
           - TYPE: conda-pip
             INSTALL: conda
             PKG_INSTALL: pip
-            ACTIVATE: conda activate
+            ACTIVATE: (conda init powershell) && (conda activate)
           - TYPE: conda-conda
             INSTALL: conda
             PKG_INSTALL: conda
-            ACTIVATE: conda activate
+            ACTIVATE: (conda init powershell) && (conda activate)
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
