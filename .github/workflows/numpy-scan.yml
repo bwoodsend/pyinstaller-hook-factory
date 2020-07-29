@@ -39,7 +39,8 @@ jobs:
       MATRIX_CONTEXT: ${{ toJson(matrix) }}
 
     defaults:
-      shell: powershell
+      run:
+        shell: powershell
 
     steps:
       - name: Check name
