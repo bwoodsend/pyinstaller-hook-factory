@@ -12,7 +12,7 @@
 
 """
 """
-import psutil, sys
+import psutil, sys, os
 from pathlib import Path
 
 class Sniff(object):
@@ -21,13 +21,13 @@ class Sniff(object):
         self.process = psutil.Process()
 
         setup and setup()
-        self.base_binaries = self.process.memory_maps()
+        self.base_binaries = self.open_binaries()
         self.base_modules = set(sys.modules.keys())
 
         body and body()
-        new_binaries = set(self.process.memory_maps()) - set(self.base_binaries)
 
-        new_binaries = [Path(i.path) for i in new_binaries]
+        new_binaries = set(self.open_binaries()) - set(self.base_binaries)
+
         self.new_dlls = [i for i in new_binaries if i.suffix != ".pyd"]
         self.new_pyds = [i for i in new_binaries if i.suffix == ".pyd"]
         modules = set(key for (key, val) in sys.modules.items() if val)
@@ -38,6 +38,18 @@ class Sniff(object):
         self.base_binaries = list(self.base_binaries)
         self.new_dlls.sort()
         self.new_pyds.sort()
+
+    def open_binaries(self):
+
+        if not psutil.OSX:
+            out = (i.path for i in self.process.memory_maps())
+        else:
+            from sniff.lsof import lsof
+            out = lsof(self.process.pid)["NAME"]
+
+        # Some names aren't filenames and should be removed. `os.path.exists`
+        # catches OSErrors and returns False in these cases.
+        return [Path(i) for i in filter(os.path.exists, out)]
 
     def to_json(self):
         import json

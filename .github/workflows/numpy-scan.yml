@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         # os: [windows-latest, macos-latest, ubuntu-latest]
-        os: [ubuntu-latest]
+        os: [macos-latest]
         python-version: [3.7]
         TYPE: [python-pip, conda-conda]
         include:
@@ -37,10 +37,6 @@ jobs:
       GITHUB_CONTEXT: ${{ toJson(github) }}
       MATRIX_NAME: ${{ matrix.os }}-python${{ matrix.python-version }}-${{ matrix.TYPE }}
       MATRIX_CONTEXT: ${{ toJson(matrix) }}
-
-    defaults:
-      run:
-        shell: pwsh
 
     steps:
       - name: Check name

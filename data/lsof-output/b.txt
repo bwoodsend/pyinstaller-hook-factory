@@ -1,0 +1,78 @@
+lsof: WARNING: can't stat() vmhgfs file system /Volumes/VMware Shared Folders
+      Output information may be incomplete.
+      assuming "dev=33000002" from mount table
+COMMAND    PID   USER   FD   TYPE             DEVICE SIZE/OFF                NODE NAME
+python3.7 1380 runner  cwd    DIR                1,4      416         12893113052 /Users/runner/work/pyinstaller-hook-factory/pyinstaller-hook-factory
+python3.7 1380 runner  txt    REG                1,4  4192140         12893124030 /usr/local/miniconda/bin/python3.7
+python3.7 1380 runner  txt    REG                1,4    19980         12893124065 /usr/local/miniconda/lib/python3.7/lib-dynload/_heapq.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    51860         12893124099 /usr/local/miniconda/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   106992         12893124060 /usr/local/miniconda/lib/python3.7/lib-dynload/_datetime.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    16436         12893124074 /usr/local/miniconda/lib/python3.7/lib-dynload/_posixsubprocess.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    33728         12893124106 /usr/local/miniconda/lib/python3.7/lib-dynload/select.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    92988         12893124082 /usr/local/miniconda/lib/python3.7/lib-dynload/_socket.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    37476         12893124111 /usr/local/miniconda/lib/python3.7/lib-dynload/zlib.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   100996         12891728561 /usr/local/miniconda/lib/libz.1.2.11.dylib
+python3.7 1380 runner  txt    REG                1,4    95464         12893124046 /usr/local/miniconda/lib/python3.7/lib-dynload/_bz2.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    40320         12893124068 /usr/local/miniconda/lib/python3.7/lib-dynload/_lzma.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   154396         12891728467 /usr/local/miniconda/lib/liblzma.5.dylib
+python3.7 1380 runner  txt    REG                1,4    16204         12893124098 /usr/local/miniconda/lib/python3.7/lib-dynload/grp.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    46612         12893132255 /usr/local/miniconda/lib/python3.7/site-packages/psutil/_psutil_osx.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    15524         12893132256 /usr/local/miniconda/lib/python3.7/site-packages/psutil/_psutil_posix.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4  4135832         12893134820 /usr/local/miniconda/lib/python3.7/site-packages/numpy/core/_multiarray_umath.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4 62898156         12893134814 /usr/local/miniconda/lib/libopenblasp-r0.3.10.dylib
+python3.7 1380 runner  txt    REG                1,4  1851728         12893133763 /usr/local/miniconda/lib/libgfortran.4.dylib
+python3.7 1380 runner  txt    REG                1,4   651260         12893134813 /usr/local/miniconda/lib/libomp.dylib
+python3.7 1380 runner  txt    REG                1,4   236428         12893133762 /usr/local/miniconda/lib/libquadmath.0.dylib
+python3.7 1380 runner  txt    REG                1,4   135744         12893133761 /usr/local/miniconda/lib/libgcc_s.1.dylib
+python3.7 1380 runner  txt    REG                1,4    54428         12893124085 /usr/local/miniconda/lib/python3.7/lib-dynload/_struct.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   137832         12893124073 /usr/local/miniconda/lib/python3.7/lib-dynload/_pickle.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    95756         12893134819 /usr/local/miniconda/lib/python3.7/site-packages/numpy/core/_multiarray_tests.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   142924         12893124056 /usr/local/miniconda/lib/python3.7/lib-dynload/_ctypes.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    37884         12893116625 /usr/local/miniconda/lib/libffi.7.dylib
+python3.7 1380 runner  txt    REG                1,4    19184         12893134835 /usr/local/miniconda/lib/python3.7/site-packages/numpy/linalg/lapack_lite.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   146860         12893134834 /usr/local/miniconda/lib/python3.7/site-packages/numpy/linalg/_umath_linalg.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   387436         12893124062 /usr/local/miniconda/lib/python3.7/lib-dynload/_decimal.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    77044         12893134833 /usr/local/miniconda/lib/python3.7/site-packages/numpy/fft/_pocketfft_internal.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   655940         12893134846 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/mtrand.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   185184         12893134843 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/bit_generator.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   243520         12893134837 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_common.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    32332         12893124095 /usr/local/miniconda/lib/python3.7/lib-dynload/binascii.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    29752         12893124064 /usr/local/miniconda/lib/python3.7/lib-dynload/_hashlib.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4  2550756         12893124022 /usr/local/miniconda/lib/libcrypto.1.1.dylib
+python3.7 1380 runner  txt    REG                1,4    42252         12893124045 /usr/local/miniconda/lib/python3.7/lib-dynload/_blake2.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    93404         12893124080 /usr/local/miniconda/lib/python3.7/lib-dynload/_sha3.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    15016         12893124044 /usr/local/miniconda/lib/python3.7/lib-dynload/_bisect.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    16348         12893124076 /usr/local/miniconda/lib/python3.7/lib-dynload/_random.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   344220         12893134836 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_bounded_integers.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    89288         12893134839 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_mt19937.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    80232         12893134841 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_philox.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    70752         12893134840 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_pcg64.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    52272         12893134842 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_sfc64.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   741452         12893134838 /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_generator.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4  1065588         12893124109 /usr/local/miniconda/lib/python3.7/lib-dynload/unicodedata.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4     9692         12893124072 /usr/local/miniconda/lib/python3.7/lib-dynload/_opcode.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4     9296         12893124091 /usr/local/miniconda/lib/python3.7/lib-dynload/_uuid.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    38400         12893124055 /usr/local/miniconda/lib/python3.7/lib-dynload/_csv.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    62844         12893124093 /usr/local/miniconda/lib/python3.7/lib-dynload/array.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    45860         12893124066 /usr/local/miniconda/lib/python3.7/lib-dynload/_json.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    47896         12893134822 /usr/local/miniconda/lib/python3.7/site-packages/numpy/core/_rational_tests.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    23956         12893134824 /usr/local/miniconda/lib/python3.7/site-packages/numpy/core/_umath_tests.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    28572         12893124100 /usr/local/miniconda/lib/python3.7/lib-dynload/mmap.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    13536         12893134821 /usr/local/miniconda/lib/python3.7/site-packages/numpy/core/_operand_flag_tests.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    17956         12893124075 /usr/local/miniconda/lib/python3.7/lib-dynload/_queue.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   129764         12893124084 /usr/local/miniconda/lib/python3.7/lib-dynload/_ssl.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   538860         12893124023 /usr/local/miniconda/lib/libssl.1.1.dylib
+python3.7 1380 runner  txt    REG                1,4    16128         12893124077 /usr/local/miniconda/lib/python3.7/lib-dynload/_scproxy.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    13768         12893134823 /usr/local/miniconda/lib/python3.7/site-packages/numpy/core/_struct_ufunc_tests.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    41780         12893124096 /usr/local/miniconda/lib/python3.7/lib-dynload/cmath.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    20444         12893124108 /usr/local/miniconda/lib/python3.7/lib-dynload/termios.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4      160         12893138064 /private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/tmpt6_7_vo2
+python3.7 1380 runner  txt    REG                1,4   171232         12891739608 /usr/local/miniconda/lib/python3.7/site-packages/_cffi_backend.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   262164         12893124103 /usr/local/miniconda/lib/python3.7/lib-dynload/pyexpat.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4  1568368 1152921500312899604 /usr/lib/dyld
+python3.7 1380 runner    0   PIPE 0xceb898bcad398973    16384
+python3.7 1380 runner    1   PIPE 0xe88391d08adf368f    65536                     ->0xff6e2faf57a81150
+python3.7 1380 runner    2   PIPE 0x590b43d7c0ca7945    16384                     ->0x37d3f8e5c729229e
+python3.7 1380 runner    3r   CHR               14,1  0t27584                 586 /dev/urandom
+python3.7 1380 runner    4   PIPE 0x8f906b3253d4a8b6    16384                     ->0x7fc1f421784607ca
+python3.7 1380 runner   16r   REG                1,4      160         12893138064 /private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/tmpt6_7_vo2

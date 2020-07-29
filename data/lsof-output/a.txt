@@ -1,0 +1,25 @@
+lsof: WARNING: can't stat() vmhgfs file system /Volumes/VMware Shared Folders
+      Output information may be incomplete.
+      assuming "dev=33000002" from mount table
+COMMAND    PID   USER   FD   TYPE             DEVICE SIZE/OFF                NODE NAME
+python3.7 1380 runner  cwd    DIR                1,4      352         12893113052 /Users/runner/work/pyinstaller-hook-factory/pyinstaller-hook-factory
+python3.7 1380 runner  txt    REG                1,4  4192140         12893124030 /usr/local/miniconda/bin/python3.7
+python3.7 1380 runner  txt    REG                1,4    19980         12893124065 /usr/local/miniconda/lib/python3.7/lib-dynload/_heapq.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    51860         12893124099 /usr/local/miniconda/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   106992         12893124060 /usr/local/miniconda/lib/python3.7/lib-dynload/_datetime.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    16436         12893124074 /usr/local/miniconda/lib/python3.7/lib-dynload/_posixsubprocess.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    33728         12893124106 /usr/local/miniconda/lib/python3.7/lib-dynload/select.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    92988         12893124082 /usr/local/miniconda/lib/python3.7/lib-dynload/_socket.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    37476         12893124111 /usr/local/miniconda/lib/python3.7/lib-dynload/zlib.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   100996         12891728561 /usr/local/miniconda/lib/libz.1.2.11.dylib
+python3.7 1380 runner  txt    REG                1,4    95464         12893124046 /usr/local/miniconda/lib/python3.7/lib-dynload/_bz2.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    40320         12893124068 /usr/local/miniconda/lib/python3.7/lib-dynload/_lzma.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4   154396         12891728467 /usr/local/miniconda/lib/liblzma.5.dylib
+python3.7 1380 runner  txt    REG                1,4    16204         12893124098 /usr/local/miniconda/lib/python3.7/lib-dynload/grp.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    46612         12893132255 /usr/local/miniconda/lib/python3.7/site-packages/psutil/_psutil_osx.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4    15524         12893132256 /usr/local/miniconda/lib/python3.7/site-packages/psutil/_psutil_posix.cpython-37m-darwin.so
+python3.7 1380 runner  txt    REG                1,4  1568368 1152921500312899604 /usr/lib/dyld
+python3.7 1380 runner    0   PIPE 0xceb898bcad398973    16384
+python3.7 1380 runner    1   PIPE 0xe88391d08adf368f    65536                     ->0xff6e2faf57a81150
+python3.7 1380 runner    2   PIPE 0x590b43d7c0ca7945    16384                     ->0x37d3f8e5c729229e
+python3.7 1380 runner    3   PIPE 0x8f906b3253d4a8b6    16384                     ->0x7fc1f421784607ca
