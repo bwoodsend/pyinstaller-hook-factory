@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
-        python-version: [3.7, 3.5, 3.8]
+        python-version: [3.5, 3.7, 3.8]
         TYPE: [python-pip, conda-pip, conda-conda]
         include:
           - TYPE: python-pip
@@ -24,11 +24,11 @@ jobs:
           - TYPE: conda-pip
             INSTALLER: conda
             PKG_INSTALL: pip
-            EXEC: conda run
+            EXEC: conda run -n env
           - TYPE: conda-conda
             INSTALLER: conda
             PKG_INSTALL: conda
-            EXEC: conda run
+            EXEC: conda run -n env
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -53,8 +53,11 @@ jobs:
         uses: s-weigand/setup-conda@v1
         with:
           update-conda: true
-          python-version: ${{ matrix.python-version }}
           conda-channels: anaconda, conda-forge
+
+      - name: Create conda env
+        if: matrix.INSTALLER != 'pip'
+        run: conda create -y -n env python=${{ matrix.python-version }}
 
       - name: Init conda windows
         if: (matrix.INSTALLER != 'pip') && (matrix.os == 'windows-latest')
@@ -70,7 +73,7 @@ jobs:
       - name: Install dependencies
         run: |
           ${{ matrix.EXEC }} python -m pip install --upgrade pip
-          ${{ matrix.EXEC }} ${{ matrix.INSTALLER }} install pytest psutil hypothesis
+          ${{ matrix.EXEC }} ${{ matrix.INSTALLER }} install pytest psutil hypothesis nose
           ${{ matrix.EXEC }} ${{ matrix.PKG_INSTALL }} install numpy
           ${{ matrix.EXEC }} pip install -e .
 
