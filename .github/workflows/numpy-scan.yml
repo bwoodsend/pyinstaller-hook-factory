@@ -3,9 +3,9 @@ name: Numpy Scan
 
 on:
   push:
-    branches: [master]
+    branches: [master, support-conda-py35]
   pull_request:
-    branches: [master]
+    branches: [master, support-conda-py35]
   workflow_dispatch:
 
 jobs:
@@ -15,16 +15,16 @@ jobs:
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
         python-version: [3.5]
-        TYPE: [python-pip, conda-pip, conda-conda]
+        TYPE: [conda-conda]
         include:
-          - TYPE: python-pip
-            INSTALLER: pip
-            PKG_INSTALL: pip
-            EXEC: ''
-          - TYPE: conda-pip
-            INSTALLER: conda
-            PKG_INSTALL: pip
-            EXEC: conda run -n env
+          #- TYPE: python-pip
+          #  INSTALLER: pip
+          #  PKG_INSTALL: pip
+          #  EXEC: ''
+          #- TYPE: conda-pip
+          #  INSTALLER: conda
+          #  PKG_INSTALL: pip
+          #  EXEC: conda run -n env
           - TYPE: conda-conda
             INSTALLER: conda
             PKG_INSTALL: conda
@@ -57,7 +57,7 @@ jobs:
 
       - name: Create conda env
         if: matrix.INSTALLER != 'pip'
-        run: conda create -y -n env python={{ matrix.python-version }}
+        run: conda create -y -n env python=${{ matrix.python-version }}
 
       - name: Init conda windows
         if: (matrix.INSTALLER != 'pip') && (matrix.os == 'windows-latest')
@@ -73,7 +73,7 @@ jobs:
       - name: Install dependencies
         run: |
           ${{ matrix.EXEC }} python -m pip install --upgrade pip
-          ${{ matrix.EXEC }} ${{ matrix.INSTALLER }} install pytest psutil hypothesis
+          ${{ matrix.EXEC }} ${{ matrix.INSTALLER }} install pytest psutil hypothesis nose
           ${{ matrix.EXEC }} ${{ matrix.PKG_INSTALL }} install numpy
           ${{ matrix.EXEC }} pip install -e .
 
