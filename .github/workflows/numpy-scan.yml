@@ -13,31 +13,58 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
-        python-version: [3.5, 3.7, 3.8]
-        TYPE: [python-pip, conda-pip, conda-conda]
+        os: [windows-latest, macos-latest]
+        python-version: [3.5]
+        TYPE: [python-pip]
         include:
           - TYPE: python-pip
             INSTALLER: pip
             PKG_INSTALL: pip
             EXEC: ''
-          - TYPE: conda-pip
-            INSTALLER: conda
-            PKG_INSTALL: pip
-            EXEC: conda run -n env
-          - TYPE: conda-conda
-            INSTALLER: conda
-            PKG_INSTALL: conda
-            EXEC: conda run -n env
+          #- TYPE: conda-pip
+          #  INSTALLER: conda
+          #  PKG_INSTALL: pip
+          #  EXEC: conda run -n env
+          #- TYPE: conda-conda
+          #  INSTALLER: conda
+          #  PKG_INSTALL: conda
+          #  EXEC: conda run -n env
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
       MATRIX_NAME: ${{ matrix.os }}-python${{ matrix.python-version }}-${{ matrix.TYPE }}
       MATRIX_CONTEXT: ${{ toJson(matrix) }}
+      JOB_NAME: ${{ github.run_number}}-${{ github.message }}.s-${{ github.after }}
 
     steps:
-      - name: Check name
-        run: echo "$MATRIX_NAME"
+      - name: Set names
+        shell: python
+        run: |
+            """Generate a suitable name for this build. This is the same for all
+            elements in the matrix."""
+
+            import os, json
+            context = json.loads(os.environ["GITHUB_CONTEXT"])
+            latest_commit = context["event"]["head_commit"]
+
+            # Enumerate by build number so that all builds can be easily sorted
+            # into chonalogical order
+            enum = context["run_number"]
+
+            # Add the 1st line of the last commit's message.
+            message = latest_commit["message"].split("\n")[0].replace(" ", "_")
+
+            # And its commit id.
+            commit_id = latest_commit["id"]
+
+            print("::set-env name=COMMIT_ID::{}".format(commit_id))
+            print("::set-env name=JOB_NAME::context {}--{}--{}".format(
+                     enum, message, commit_id))
+
+      - name: Check names
+        run: |
+          echo ${{ env.MATRIX_NAME}}
+          echo ${{ env.JOB_NAME }}
 
       - name: Check out repository
         uses: actions/checkout@v2
@@ -94,3 +121,14 @@ jobs:
         with:
           name: ${{ env.MATRIX_NAME }}
           path: packages/numpy/*.json
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "packages/numpy/*.json"
+          commit: ${{ env.COMMIT_ID }}
+          name: ${{ env.JOB_NAME }}
+          replacesArtifacts: true
+          tag: ${{ github.run_number }}
+          token: ${{ secrets.GITHUB_TOKEN }}
