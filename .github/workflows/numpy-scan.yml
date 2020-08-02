@@ -14,8 +14,8 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
-        python-version: [3.5, 3.7, 3.8]
+        os: [windows-latest]
+        python-version: [3.8]
         TYPE: [python-pip, conda-pip, conda-conda]
         include:
           - TYPE: python-pip
@@ -30,6 +30,11 @@ jobs:
             INSTALLER: conda
             PKG_INSTALL: conda
             EXEC: conda run -n env
+          - TYPE: python-pip-mkl
+            os: windows-latest
+            INSTALLER: pip
+            PKG_INSTALL: pip install https://download.lfd.uci.edu/pythonlibs/w3jqiv8s/numpy-1.19.1+mkl-cp38-cp38-win_amd64.whl #
+            python-version: 3.8
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
