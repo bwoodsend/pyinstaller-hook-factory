@@ -17,7 +17,9 @@ jobs:
         os: [windows-latest, macos-latest, ubuntu-latest]
         python-version: [3.5, 3.7, 3.8]
         TYPE: [python-pip, conda-pip, conda-conda]
+        PACKAGE: [numpy]
         include:
+          # Extra variables that depend on matrix values.
           - TYPE: python-pip
             INSTALLER: pip
             PKG_INSTALL: pip
@@ -30,6 +32,20 @@ jobs:
             INSTALLER: conda
             PKG_INSTALL: conda
             EXEC: conda run -n env
+
+          # Additional elements to append to the matrix.
+          - TYPE: python-pip-mkl
+            os: windows-latest
+            INSTALLER: pip
+            PKG_INSTALL: pip
+            python-version: 3.8
+            PACKAGE: https://download.lfd.uci.edu/pythonlibs/w3jqiv8s/numpy-1.19.1+mkl-cp38-cp38-win_amd64.whl
+          - TYPE: python-pip-mkl
+            os: windows-latest
+            INSTALLER: pip
+            PKG_INSTALL: pip
+            python-version: 3.5
+            PACKAGE: https://download.lfd.uci.edu/pythonlibs/w3jqiv8s/cp35/numpy-1.16.6+mkl-cp35-cp35m-win_amd64.whl
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -102,7 +118,7 @@ jobs:
         run: |
           ${{ matrix.EXEC }} python -m pip install --upgrade pip
           ${{ matrix.EXEC }} ${{ matrix.INSTALLER }} install pytest psutil hypothesis nose
-          ${{ matrix.EXEC }} ${{ matrix.PKG_INSTALL }} install numpy
+          ${{ matrix.EXEC }} ${{ matrix.PKG_INSTALL }} install ${{ matrix.PACKAGE }}
           ${{ matrix.EXEC }} pip install -e .
 
       - name: Show environment
