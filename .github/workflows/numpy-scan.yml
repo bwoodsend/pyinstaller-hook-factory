@@ -47,6 +47,13 @@ jobs:
             python-version: 3.5
             PACKAGE: https://download.lfd.uci.edu/pythonlibs/w3jqiv8s/cp35/numpy-1.16.6+mkl-cp35-cp35m-win_amd64.whl
 
+        exclude:
+          # Not all are version combinations are available.
+          - python-version: 3.5
+            PACKAGE: numpy==1.19
+          - python-version: 3.8
+            PACKAGE: numpy==1.16
+
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
       MATRIX_NAME: ${{ matrix.os }}-python${{ matrix.python-version }}-${{ matrix.TYPE }}
