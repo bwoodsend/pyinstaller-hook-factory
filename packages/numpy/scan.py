@@ -20,7 +20,7 @@ results = Sniff(None, body).to_json()
 
 from pathlib import Path
 import os
-
-name = os.environ.get("MATRIX_NAME", "scan")
+import uuid
+name = os.environ.get("MATRIX_NAME", "scan") + "-" + str(uuid.uuid1())
 
 Path(__file__).with_name(name + ".json").write_text(results)
