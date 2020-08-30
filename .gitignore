@@ -131,3 +131,6 @@ dmypy.json
 # Test outputs are in json format or zipped jsons
 *.json
 *.zip
+
+# PyCharm
+.idea
