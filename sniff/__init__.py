@@ -52,10 +52,11 @@ class Sniff(object):
         return [Path(i) for i in filter(os.path.exists, out)]
 
     def to_json(self):
+        dic = {i: getattr(self, i) for i in dir(self) if i.startswith("new")}
         import json
-        return json.dumps(
-                {i: getattr(self, i) for i in dir(self) if i.startswith("new")},
-                indent="  ", default=str, sort_keys=True)
+        if "MATRIX_CONTEXT" in os.environ:
+            dic["MATRIX_CONTEXT"] = json.loads(os.environ["MATRIX_CONTEXT"])
+        return json.dumps(dic, indent="  ", default=str, sort_keys=True)
 
 
 if __name__ == "__main__":
