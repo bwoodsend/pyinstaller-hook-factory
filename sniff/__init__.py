@@ -55,7 +55,7 @@ class Sniff(object):
         import json
         return json.dumps(
                 {i: getattr(self, i) for i in dir(self) if i.startswith("new")},
-                indent="  ", default=str)
+                indent="  ", default=str, sort_keys=True)
 
 
 if __name__ == "__main__":
