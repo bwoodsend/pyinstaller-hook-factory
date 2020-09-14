@@ -40,13 +40,13 @@ jobs:
             INSTALLER: pip
             PKG_INSTALL: pip
             python-version: 3.8
-            PACKAGE: https://download.lfd.uci.edu/pythonlibs/w3jqiv8s/numpy-1.19.1+mkl-cp38-cp38-win_amd64.whl
+            PACKAGE: https://download.lfd.uci.edu/pythonlibs/x2tqcw5k/numpy-1.19.2+mkl-cp38-cp38-win_amd64.whl
           - TYPE: python-pip-mkl
             os: windows-latest
             INSTALLER: pip
             PKG_INSTALL: pip
             python-version: 3.5
-            PACKAGE: https://download.lfd.uci.edu/pythonlibs/w3jqiv8s/cp35/numpy-1.16.6+mkl-cp35-cp35m-win_amd64.whl
+            PACKAGE: https://download.lfd.uci.edu/pythonlibs/x2tqcw5k/cp35/numpy-1.16.6+mkl-cp35-cp35m-win_amd64.whl
 
         exclude:
           # Not all are version combinations are available.
