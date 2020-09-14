@@ -54,6 +54,9 @@ jobs:
             PACKAGE: numpy==1.19
           - python-version: 3.8
             PACKAGE: numpy==1.16
+          - python-version: 3.5
+            PACKAGE: numpy==1.16
+            TYPE: conda-conda
 
     env:
       GITHUB_CONTEXT: ${{ toJson(github) }}
