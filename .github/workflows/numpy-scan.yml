@@ -125,15 +125,17 @@ jobs:
         run: |
           conda init powershell
 
+      - name: Downgrade pip
+        if: matrix.INSTALLER == 'pip'
+        run: ${{ matrix.EXEC }} python -m pip install "pip>19.0,<20"
+
       - name: Install dependencies
         run: |
-          ${{ matrix.EXEC }} python -m pip install --upgrade pip
           ${{ matrix.EXEC }} ${{ matrix.PKG_INSTALL }} install ${{ matrix.PACKAGE }}
           ${{ matrix.EXEC }} pip install https://github.com/bwoodsend/pyinstaller/archive/fix-numpy-hooks.zip
 
       - name: Show environment
         run: |
-
           ${{ matrix.EXEC }} python -VV
           ${{ matrix.EXEC }} python -c "from pprint import pprint; import os; pprint(dict(os.environ))"
           ${{ matrix.EXEC }} pip freeze
